@@ -17,7 +17,7 @@ fetch("https://restcountries.com/v3.1/all")
                 <p class="card-text">${element.name.official}</p>
                 <p class="card-text">${element.region}</p>
                 <p class="card-text">${element.timezones}</p>
-                <a href="${element.maps.googleMaps}" class="btn btn-primary">Go somewhere</a>
+                <a href="${element.maps.googleMaps}" class="btn btn-primary">Go to map</a>
             </div>
         </div>`
         
@@ -34,6 +34,7 @@ function searchCountry(){
     let officialName = document.getElementById("c_Off_Name")
     let region = document.getElementById("c_Reigon")
     let timezones = document.getElementById("c_Time")
+    let map = document.getElementById("c-map")
 
     //console.log(name);
     fetch(`https://restcountries.com/v3.1/name/${inputName}`)
@@ -45,6 +46,7 @@ function searchCountry(){
                 officialName.innerText = obj.name.official
                 region.innerText = obj.region
                 timezones.innerText = obj.timezones
+                map.href = obj.maps.googleMaps
         });
         
     })
